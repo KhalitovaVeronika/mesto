@@ -7,8 +7,7 @@
         border-radius: 10px;
         box-sizing: border-box;
         position: relative;
-        margin: auto;
-        margin-top: 196px;
+        margin: 196px auto;
       }
       
       @media screen and (max-width: 700px) {

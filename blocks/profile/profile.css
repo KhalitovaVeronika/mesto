@@ -1,11 +1,10 @@
 .profile {
     max-width: 880px;
-    box-sizing: border-box;
     padding: 0;
-    margin: 45px auto;
     display: grid;
-    grid-template-columns: 120px auto 150px;
+    grid-template-columns: 130px auto 150px;
     column-gap: 30px;
+    margin: 45px auto;
   }
   
   @media screen and (max-width: 700px) {
