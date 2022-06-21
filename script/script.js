@@ -6,6 +6,7 @@ const profileDescription = document.querySelector('.profile__description');
 
 let nameInput = document.querySelector('#name');
 let descriptionInput = document.querySelector('#description');
+let formElement = document.querySelector('.form');
 
 function openPopup(){
   popup.classList.remove('popup_hidden');
@@ -20,4 +21,14 @@ function closePopup(){
 buttonEdit.addEventListener('click', openPopup);
 buttonClose.addEventListener('click', closePopup);
 
+function formSubmitHandler(evt) {
+  evt.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileDescription.textContent = descriptionInput.value;
+  closePopup();
+}
+
+buttonEdit.addEventListener('click', openPopup);
+buttonClose.addEventListener('click', closePopup);
+formElement.addEventListener('submit', formSubmitHandler);
 

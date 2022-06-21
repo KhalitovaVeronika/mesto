@@ -2,7 +2,7 @@
     position: absolute;
     background-color: rgba(0,0,0,0);
     border: none;
-    background-image: url(../../../image/Close-Icon.png);
+    background-image: url(../../../image/Close-Icon.svg);
     background-size: contain;
     width: 32px;
     height: 32px;
