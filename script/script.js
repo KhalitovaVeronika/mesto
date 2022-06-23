@@ -18,9 +18,6 @@ function closePopup(){
   popup.classList.add('popup_hidden');
 }
 
-buttonEdit.addEventListener('click', openPopup);
-buttonClose.addEventListener('click', closePopup);
-
 function formSubmitHandler(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
