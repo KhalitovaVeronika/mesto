@@ -1,23 +1,23 @@
 const popup = document.querySelector('.popup');
 const popupCloseButtons = document.querySelectorAll(".popup__close-button");
-const editPopup = document.querySelector(".popup_type_edit");
-const openEditPopupBtn = document.querySelector(".profile__edit-button");
-const popupEditForm = editPopup.querySelector("#form-edit");
+const popupEdit = document.querySelector(".popup_type_edit");
+const popupOpenEditBtn = document.querySelector(".profile__edit-button");
+const popupEditForm = popupEdit.querySelector("#form-edit");
 const nameProfile = document.querySelector(".profile__name");
-const nameInput = editPopup.querySelector(".popup__text_type_name");
+const nameInput = popupEdit.querySelector(".popup__text_type_name");
 const descriptionProfile = document.querySelector(".profile__description");
-const descriptionInput = editPopup.querySelector(".popup__text_type_description");
+const descriptionInput = popupEdit.querySelector(".popup__text_type_description");
 
 
 const cardsContainer = document.querySelector(".elements__container");
 const elementTemplate = document.querySelector("#tempalate-card").content;
 
 /*переменные попапа создания карточки (открыть/закрыть)*/
-const addPopup = document.querySelector(".popup_type_add");
-const addPopupBtn = document.querySelector(".profile__add-button");
+const popupAdd = document.querySelector(".popup_type_add");
+const popupAddBtn = document.querySelector(".profile__add-button");
 const popupAddForm = document.querySelector("#form-add");
-const placeInput = addPopup.querySelector(".popup__text_type_place");
-const linkInput = addPopup.querySelector(".popup__text_type_link");
+const placeInput = popupAdd.querySelector(".popup__text_type_place");
+const linkInput = popupAdd.querySelector(".popup__text_type_link");
 
 /*переменные попапа увеличения фотографии*/
 const imgPopup = document.querySelector(".popup_type_img");
@@ -39,48 +39,33 @@ popupCloseButtons.forEach((button) => {
   button.addEventListener("click", () => closePopup(popup));
 });
 
-/*карточки ПР5*/
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-
+//закрытие  Esc
+const closeWithEsc = (evt) => {
+  if (evt.key === 'Escape') {
+    const popup = document.querySelector('.popup_active');
+    closePopup(popupEdit);
+    closePopup(popupAdd);
+    closePopup(imgPopup);
+  };
+};
 /*открытие попапа редактирования*/
-openEditPopupBtn.addEventListener("click", () => {
-  openPopup(editPopup);
+/*спросить у наставника логику*/
+popupOpenEditBtn.addEventListener("click", function () {
   nameInput.value = nameProfile.textContent;
   descriptionInput.value = descriptionProfile.textContent;
+  openPopup(popupEdit);
+
 });
+
+
 
 /*сохранение данных попапа редактирования по кнопке 'Сохранить'*/
 popupEditForm.addEventListener("submit", (event) => {
   event.preventDefault();
+  closePopup(popupEdit);
   nameProfile.textContent = nameInput.value;
   descriptionProfile.textContent = descriptionInput.value;
-  closePopup(editPopup);
+  
 });
 
 /*карточки*/
@@ -126,8 +111,8 @@ function createCard(name, link) {
 };
 
 /*открытие попапа создания карточки*/
-addPopupBtn.addEventListener ("click", () => {
-  openPopup(addPopup);
+popupAddBtn.addEventListener ("click", () => {
+  openPopup(popupAdd);
 });
 
 /*сохранение данных попапа создания карточки по кнопке 'Создать'*/
@@ -136,6 +121,6 @@ popupAddForm.addEventListener("submit", (evt) => {
   const newName = placeInput.value;
   const newLink = linkInput.value;
   renderCard(cardsContainer, createCard(newName, newLink));
-  closePopup(addPopup);
+  closePopup(popupAdd);
   evt.target.reset();
 });
