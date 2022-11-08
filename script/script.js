@@ -68,24 +68,6 @@ popupCloseButtons.forEach((button) => {
 });
 
 
-//закрытие попапов по клику на оверлей
-const clickOverlay = (evt) => {
-  if (evt.target.classList.contains('popup_active')) {
-    closePopup(evt.target);
-  };
-};
-
-editPopup.addEventListener('click', clickOverlay);
-addPopup.addEventListener('click', clickOverlay);
-imgPopup.addEventListener('click', clickOverlay);
-
-//закрытие попаов по нажатию на Esc
-const pressEsc = (evt) => {
-  if (evt.key === 'Escape') {
-    const modalOpened = document.querySelector('.popup_active');
-    closePopup(modalOpened);
-  };
-};
 
 /*открытие попапа редактирования*/
 openEditPopupBtn.addEventListener("click", () => {
@@ -141,7 +123,6 @@ function createCard(name, link) {
     openPopup(imgPopup);
   })
 
-  return elementPlace;
 };
 
 /*открытие попапа создания карточки*/
