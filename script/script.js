@@ -43,9 +43,8 @@ popupCloseButtons.forEach((button) => {
 const closeWithEsc = (evt) => {
   if (evt.key === 'Escape') {
     const popup = document.querySelector('.popup_active');
-    closePopup(popupEdit);
-    closePopup(popupAdd);
-    closePopup(imgPopup);
+    closePopup(popup);
+    
   };
 };
 /*открытие попапа редактирования*/
