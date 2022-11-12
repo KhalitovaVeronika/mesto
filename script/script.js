@@ -24,7 +24,7 @@ const popupSaveButton = popupAdd.querySelector(".popup__save-button");
 const imgPopup = document.querySelector(".popup_type_img");
 
 const fullCardImg = document.querySelector(".popup__full-photo");
-    const descriptionCardImg = document.querySelector (".popup__full-photo-description");
+const descriptionCardImg = document.querySelector (".popup__full-photo-description");
 
 /*функция открытия попапа*/
 function openPopup(popup) {
@@ -43,33 +43,31 @@ popupCloseButtons.forEach((button) => {
   button.addEventListener("click", () => closePopup(popup));
 });
 
-
-
-
-/*const overleyClosePopups = Array.from(document.querySelectorAll(".popup"));
+ 
+const overleyClosePopups = Array.from(document.querySelectorAll(".popup"));
 overleyClosePopups.forEach((overley) => {
   overley.addEventListener("click", (evt) => {
-    if (evt.target === evt.currentTarget) {
-      closePopup(popap);
+    if (evt.target.classList.contains('popup_active')) {
+      closePopup(evt.target);
     }
   });
-});*/
+});
+
+
 
 //оверлей 
-const overleyClosePopups = (evt) => {
+/*const overleyClosePopups = (evt) => {
   if (evt.target.classList.contains('popup_active')) {
     closePopup(evt.target);
   };
-};
+};*/
 
-[popupEdit, popupAdd, imgPopup].forEach(evt => evt.addEventListener('click', overleyClosePopups))
 
 //закрытие  Esc
 const closeWithEsc = (evt) => {
   if (evt.key === 'Escape') {
     const popup = document.querySelector('.popup_active');
     closePopup(popup);
-
   };
 };
 
