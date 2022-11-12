@@ -13,7 +13,7 @@
     </header>
 
     <main>
-      <section class="profile">
+      <div class="profile">
         <img
           class="profile__avatar"
           src="./image/profile.jpg"
@@ -35,11 +35,11 @@
           type="button"
           aria-label="Add"
         ></button>
-      </section>
+      </div>
 
-      <section class="elements">
+      <div class="elements">
         <ul class="elements__container"></ul>
-      </section>
+      </div>
     </main>
 
     <footer class="footer">
@@ -65,7 +65,7 @@
       </li>
     </template>
 
-    <section class="popup popup_type_edit">
+    <div class="popup popup_type_edit">
       <div class="popup__container">
         <form class="popup__form" name="popup" id="form-edit" novalidate>
           <button
@@ -97,9 +97,9 @@
           <button class="popup__save-button" type="submit">Сохранить</button>
         </form>
       </div>
-    </section>
+    </div>
 
-    <section class="popup popup_type_add">
+    <div class="popup popup_type_add">
       <div class="popup__container">
         <form class="popup__form" name="popup" id="form-add" novalidate>
           <button
@@ -130,9 +130,9 @@
           <button class="popup__save-button" type="submit">Создать</button>
         </form>
       </div>
-    </section>
+    </div>
 
-    <section class="popup popup_type_img">
+    <div class="popup popup_type_img">
       <div class="popup__img-container">
         <button
           class="popup__close-button"
@@ -144,7 +144,7 @@
           <figcaption class="popup__full-photo-description"></figcaption>
         </figure>
       </div>
-    </section>
+    </div>
     <script defer src="./script/cards.js"></script>
     <script defer src="./script/vl.js"></script>
     <script defer src="./script/script.js"></script>
