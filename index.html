@@ -67,7 +67,7 @@
 
     <section class="popup popup_type_edit">
       <div class="popup__container">
-        <form class="popup__form" name="popup" id="form-edit">
+        <form class="popup__form" name="popup" id="form-edit" novalidate>
           <button
             class="popup__close-button"
             type="button"
@@ -83,6 +83,7 @@
             maxlength="40"
             required
           />
+          <span class="popup__error input-error-name"></span>
           <input
             class="popup__text popup__text_type_description"
             name="descritpion"
@@ -92,6 +93,7 @@
             maxlength="200"
             required
           />
+          <span class="popup__error input-error-descritpion"></span>
           <button class="popup__save-button" type="submit">Сохранить</button>
         </form>
       </div>
@@ -99,7 +101,7 @@
 
     <section class="popup popup_type_add">
       <div class="popup__container">
-        <form class="popup__form" name="popup" id="form-add">
+        <form class="popup__form" name="popup" id="form-add" novalidate>
           <button
             class="popup__close-button"
             type="button"
@@ -111,11 +113,12 @@
             class="popup__text popup__text_type_place"
             name="place"
             type="text"
-            placeholder="Название"
+            placeholder="Название места"
             minlength="2"
             maxlength="30"
             required
           />
+          <span class="popup__error input-error-place"></span>
           <input
             class="popup__text popup__text_type_link"
             name="link"
@@ -123,6 +126,7 @@
             placeholder="Ссылка на картинку"
             required
           />
+          <span class="popup__error input-error-link"></span>
           <button class="popup__save-button" type="submit">Создать</button>
         </form>
       </div>
@@ -142,6 +146,7 @@
       </div>
     </section>
     <script defer src="./script/cards.js"></script>
+    <script defer src="./script/vl.js"></script>
     <script defer src="./script/script.js"></script>
   </body>
 </html>

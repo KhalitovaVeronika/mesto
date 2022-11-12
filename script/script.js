@@ -1,4 +1,3 @@
-const popup = document.querySelector('.popup');
 const popupCloseButtons = document.querySelectorAll(".popup__close-button");
 const popupEdit = document.querySelector(".popup_type_edit");
 const popupOpenEditBtn = document.querySelector(".profile__edit-button");
@@ -18,6 +17,8 @@ const popupAddBtn = document.querySelector(".profile__add-button");
 const popupAddForm = document.querySelector("#form-add");
 const placeInput = popupAdd.querySelector(".popup__text_type_place");
 const linkInput = popupAdd.querySelector(".popup__text_type_link");
+const popupSaveButton = popupAdd.querySelector(".popup__save-button");
+
 
 /*переменные попапа увеличения фотографии*/
 const imgPopup = document.querySelector(".popup_type_img");
@@ -31,7 +32,7 @@ function openPopup(popup) {
 /*функция закрытия попапа*/
 function closePopup(popup) {
   popup.classList.remove('popup_active');
-  document.removeEventListener('keydown', closeWithEsc);
+  document.removeEventListener('keydown', closeWithEsc, overleyClosePopups);
 };
 
 popupCloseButtons.forEach((button) => {
@@ -44,9 +45,29 @@ const closeWithEsc = (evt) => {
   if (evt.key === 'Escape') {
     const popup = document.querySelector('.popup_active');
     closePopup(popup);
-    
+
   };
 };
+
+/*function overleyClosePopups(popup) {
+  popup.addEventListener("click", (evt) => {
+    if (evt.target === evt.currentTarget) {
+      closePopup();
+}
+});
+}*/
+
+const overleyClosePopups = Array.from(document.querySelectorAll(".popup_active"));
+overleyClosePopups.forEach((overley) => {
+  overley.addEventListener("click", (evt) => {
+    if (evt.target === evt.currentTarget) {
+      closePopup();
+    }
+  });
+});
+
+[popupEdit, popupAdd, imgPopup].forEach(evt => evt.addEventListener('click', overleyClosePopups))
+
 /*открытие попапа редактирования*/
 /*спросить у наставника логику*/
 popupOpenEditBtn.addEventListener("click", function () {
@@ -114,12 +135,14 @@ popupAddBtn.addEventListener ("click", () => {
   openPopup(popupAdd);
 });
 
+
 /*сохранение данных попапа создания карточки по кнопке 'Создать'*/
 popupAddForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const newName = placeInput.value;
   const newLink = linkInput.value;
   renderCard(cardsContainer, createCard(newName, newLink));
+  disabledButton({disabledButtonClass: 'popup__save-button_disabled'}, popupSaveButton);
   closePopup(popupAdd);
   evt.target.reset();
 });
