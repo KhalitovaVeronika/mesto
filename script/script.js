@@ -1,3 +1,7 @@
+import { FormValidator } from './FormValidator.js'
+import { initialCards } from './cards.js';
+
+//1
 const popupCloseButtons = document.querySelectorAll(".popup__close-button");
 const popupEdit = document.querySelector(".popup_type_edit");
 const popupOpenEditBtn = document.querySelector(".profile__edit-button");
@@ -132,7 +136,7 @@ function createCard(name, link) {
   deleteButton.addEventListener('click', trash)
 
 
-  /*лайк*/
+  /*лайк*/ 
  
   const likeButton = elementPlace.querySelector(".elements__like-button");
   const toggleLike = (evt) => { 
@@ -180,3 +184,4 @@ popupAddForm.addEventListener("submit", (evt) => {
   closePopup(popupAdd);
   evt.target.reset();
 });
+z
