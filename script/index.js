@@ -1,5 +1,6 @@
-import { FormValidator } from './FormValidator.js'
-import { initialCards } from './cards.js';
+import FormValidator from './FormValidator.js'
+import initialCards from './initialCards.js';
+//import  Card  from "./Card.js"
 
 //1
 const popupCloseButtons = document.querySelectorAll(".popup__close-button");
@@ -184,4 +185,3 @@ popupAddForm.addEventListener("submit", (evt) => {
   closePopup(popupAdd);
   evt.target.reset();
 });
-z

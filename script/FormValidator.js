@@ -16,10 +16,10 @@ class FormValidator {
        // this._errorElement = this._formElement.querySelector(`.input-error-${inputElement.name}`);
 
 
-       this._popupForm = this._popup.querySelector('.popup__form');
-       this._inputList = this._popupForm.querySelectorAll('.popup__text')
-       this._popupFullPhoto = document.querySelector(".popup__full-photo");
-        this._popupFullPhotoDescription = document.querySelector(".popup__full-photo-description");
+     //  this._popupForm = this._popup.querySelector('.popup__form');
+     //  this._inputList = this._popupForm.querySelectorAll('.popup__text')
+     //  this._popupFullPhoto = document.querySelector(".popup__full-photo");
+     //   this._popupFullPhotoDescription = document.querySelector(".popup__full-photo-description");
     }
 
 
@@ -105,11 +105,11 @@ resetValidation() {
         this._hideInputError(inputElement);
     });
 
-    this._formElement.addEventListener('submit', () => {
-        if (this._hasInvalidInput()) {
-          this.disabledButton();
-        }
-      });
+   // this._formElement.addEventListener('submit', () => {
+  //      if (this._hasInvalidInput()) {
+ //         this.disabledButton();
+   //     }
+  //    });
 };
 
 enableValidation () {
