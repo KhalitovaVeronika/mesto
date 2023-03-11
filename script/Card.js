@@ -1,5 +1,5 @@
 
-export class Card {
+export default class Card {
   constructor (name, link, templateSelector) {
     this._link = link;
     this._name = namr;

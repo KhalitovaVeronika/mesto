@@ -1,6 +1,6 @@
 //ООП
 
-class FormValidator {
+export default class FormValidator {
     constructor (formElement, data) {
         this._formElement = formElement;
 
